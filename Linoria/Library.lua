@@ -24,7 +24,7 @@ local Library = {
     AccentColor = Color3.fromRGB(208, 123, 255);
     OutlineColor = Color3.fromRGB(11, 11, 11);
     Black = Color3.new(0, 0, 0);
-    Font = Enum.Font.Bangers;
+    Font = Enum.Font.Highway;
     OpenedFrames = {};
     Signals = {};
     ScreenGui = ScreenGui;
@@ -61,7 +61,7 @@ end
 function Library:CreateLabel(Properties, IsHud)
     local _Instance = Library:Create('TextLabel', {
         BackgroundTransparency = 1,
-        Font = Enum.Font.Bangers,
+        Font = Enum.Font.Highway,
         TextColor3 = Library.FontColor or Library.AccentColor,
         TextSize = 15,
         TextStrokeTransparency = 0,
@@ -74,7 +74,7 @@ end
 function Library:CreateLabel2(Properties, IsHud)
     local _Instance = Library:Create('TextLabel', {
         BackgroundTransparency = 1,
-        Font = Enum.Font.Bangers,
+        Font = Enum.Font.Highway,
         TextColor3 = Library.FontColor2,
         TextSize = 16,
         TextStrokeTransparency = 0,
@@ -109,7 +109,7 @@ function Library:MakeDraggable(Instance, Cutoff)
 end
 
 function Library:AddToolTip(InfoStr, HoverInstance)
-    local X, Y = Library:GetTextBounds(InfoStr, Enum.Font.Bangers, 14);
+    local X, Y = Library:GetTextBounds(InfoStr, Enum.Font.Highway, 14);
     local Tooltip = Library:Create('Frame', {
         BackgroundColor3 = Library.MainColor,        
         BorderColor3 = Library.OutlineColor,
@@ -389,7 +389,7 @@ do
             BackgroundTransparency = 1;
             Position = UDim2.new(0, 5, 0, 0);
             Size = UDim2.new(1, -5, 1, 0);
-            Font = Enum.Font.Bangers;
+            Font = Enum.Font.Highway;
             PlaceholderColor3 = Color3.fromRGB(190, 190, 190);
             PlaceholderText = 'Hex color',
             Text = '#FFFFFF',
@@ -839,7 +839,7 @@ do
             Parent = Container;
         });
         if DoesWrap then
-            local Y = select(2, Library:GetTextBounds(Text, Enum.Font.Bangers, 14, Vector2.new(TextLabel.AbsoluteSize.X, math.huge)))
+            local Y = select(2, Library:GetTextBounds(Text, Enum.Font.Highway, 14, Vector2.new(TextLabel.AbsoluteSize.X, math.huge)))
             TextLabel.Size = UDim2.new(1, -4, 0, Y)
         else
             Library:Create('UIListLayout', {
@@ -855,7 +855,7 @@ do
         function Label:SetText(Text)
             TextLabel.Text = Text
             if DoesWrap then
-                local Y = select(2, Library:GetTextBounds(Text, Enum.Font.Bangers, 14, Vector2.new(TextLabel.AbsoluteSize.X, math.huge)))
+                local Y = select(2, Library:GetTextBounds(Text, Enum.Font.Highway, 14, Vector2.new(TextLabel.AbsoluteSize.X, math.huge)))
                 TextLabel.Size = UDim2.new(1, -4, 0, Y)
             end
             Groupbox:Resize();
@@ -1059,7 +1059,7 @@ do
             BackgroundTransparency = 1;
             Position = UDim2.fromOffset(0, 0),
             Size = UDim2.fromScale(5, 1),
-            Font = Enum.Font.Bangers;
+            Font = Enum.Font.Highway;
             PlaceholderColor3 = Color3.fromRGB(190, 190, 190);
             PlaceholderText = Info.Placeholder or '';
             Text = Info.Default or '';
@@ -1864,7 +1864,7 @@ function Library:SetWatermark(Text)
     Library.WatermarkText.Text = Text;
 end
 function Library:Notify(Text, Time)
-    local XSize, YSize = Library:GetTextBounds(Text, Enum.Font.Bangers, 14);
+    local XSize, YSize = Library:GetTextBounds(Text, Enum.Font.Highway, 14);
     YSize = YSize + 7
     local NotifyOuter = Library:Create('Frame', {
         BorderColor3 = Color3.new(0, 0, 0);
@@ -2059,7 +2059,7 @@ function Library:CreateWindow(...)
             Groupboxes = {};
             Tabboxes = {};
         };
-        local TabButtonWidth = Library:GetTextBounds(Name, Enum.Font.Bangers, 16);
+        local TabButtonWidth = Library:GetTextBounds(Name, Enum.Font.Highway, 16);
         local TabButton = Library:Create('Frame', {
             BackgroundColor3 = Library.BackgroundColor;
             BorderColor3 = Library.OutlineColor;
@@ -2435,9 +2435,6 @@ function Library:CreateWindow(...)
 
             Cursor.Visible = not InputService.MouseIconEnabled;
             RenderStepped:Wait();
-            if Library.OnUnload then
-                Cursor:Remove()
-            end
         end;
         Cursor:Remove();
     end
